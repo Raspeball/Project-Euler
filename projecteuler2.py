@@ -1,3 +1,4 @@
+#lol
 def main():
 	value = 4000000
 	sum = 2
