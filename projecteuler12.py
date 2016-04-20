@@ -21,7 +21,7 @@ def divnum(x):
 
 def main():
 	tnums = 14000 # #-th triangular number
-	while tnums > 1:
+	while tnums >= 1: # >= if you want to start at 1
 		triangle = trianglenum(tnums)
 		trianglediv = divnum(triangle)
 		if trianglediv >= 300:
