@@ -29,6 +29,6 @@ def main():
 		else:
 			tnums = tnums + 1
 		#
-	return triangle
+	return (triangle, tnums)
 
 print(main())
