@@ -1,30 +1,28 @@
+import numpy as np
+
 def trianglenum(n): #computes the n-th triangle number
 	trinum = (n*(n+1))/2
 	return trinum
 
 def divnum(x):
-	d = 1 # start at 1 since every number has itself as divisor
-	if x % 2 == 0:
-		for i in range(1,((x/2)+1)):
-			if x % i == 0:
-				d = d+1
-			else:
-				continue
-	else:
-		for i in range(1,((x+1)/2)+1):
+	d = 0
+	largeds = []
+	for i in xrange(1,int((np.sqrt(x) + 1))):
 			if x % i == 0:
 				d = d + 1
-			else:
-				continue
-	return d
+				if i*i != x:
+					largeds.append((x / i))
+			else: continue
+	totd = d + len(largeds)
+	return totd
 
 
 def main():
-	tnums = 14000 # #-th triangular number
-	while tnums >= 1: # >= if you want to start at 1
+	tnums = 1 # #-th triangular number
+	while tnums >= 1:
 		triangle = trianglenum(tnums)
 		trianglediv = divnum(triangle)
-		if trianglediv >= 300:
+		if trianglediv >= 500:
 			break
 		else:
 			tnums = tnums + 1
