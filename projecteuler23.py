@@ -19,7 +19,8 @@ def PropDiv(num):
     for m in multiples.keys():
         if multiples[m] > 1:
             for n in range(2, multiples[m] + 1):
-                propdivs.append(m**n)
+                if m**n != num and m**n < num:
+                    propdivs.append(m**n)
 
 
     propdivs = list(set(propdivs))
@@ -46,3 +47,4 @@ def IsAbundant(num):
         return False
 
 limit = 28123
+#  Testing yield 1047 abundant numbers under this limit
