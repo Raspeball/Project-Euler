@@ -28,4 +28,4 @@ for i in range(10, 10000000):
         DFP_sum += i
         print(i)
 
-print(DFP_sum)
+print("Jøss...")
