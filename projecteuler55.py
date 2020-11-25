@@ -14,32 +14,31 @@ def ReverseAdd(num):
     return res
 
 
-def Lychrel(num, iterations):
+def Lychrel(lim, iterations):
 
     nLychrel = 0
-    temp_iter = iterations
-    x = num
-    #for i in range(lim):
-    while temp_iter >= 0:
-        if x == ReverseNum(x):
-            break
-        else:
-            x = ReverseAdd(x)
-            print(x)
-            temp_iter = temp_iter - 1
+    isLychrel = None
 
-    if temp_iter == 0:
-        nLychrel += 1
+    for i in range(lim):
         temp_iter = iterations
+        x = ReverseAdd(i)
+
+        while temp_iter >= 0:
+            if x == ReverseNum(x):
+                isLychrel = False
+                #print(x)
+                break
+            else:
+                x = ReverseAdd(x)
+                #print(x)
+                temp_iter = temp_iter - 1
+                isLychrel = True
+
+        if isLychrel:
+            #print(x)
+            nLychrel += 1
 
     return nLychrel
 
-Lychrel(349, 50)
-
-    
-
-        
-                
-            
-            
-    
+hailmary = Lychrel(10000, 50)
+print(hailmary)
