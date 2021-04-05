@@ -10,3 +10,5 @@ I encourage you to registrer and try to solve the problems on your own.
 I mainly use [Python](https://www.python.org) in the soultions to the problems.
 
 <!-- Built with -->
+
+<!-- Language -->
