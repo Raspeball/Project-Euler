@@ -18,4 +18,7 @@ def main():
 	print sum	
 	
 main()
+
+def Fibo(n):
+	
 		
