@@ -7,8 +7,6 @@ All the problems - along with various solutions from users such as my self - can
 
 I encourage you to registrer and try to solve the problems on your own.
 
-## Programming
-I mainly use [Python](https://www.python.org) in the soultions to the problems.
 
 <!-- Built with -->
 
@@ -18,4 +16,6 @@ I mainly use [Python](https://www.python.org) in the soultions to the problems.
 [Solutions](https://github.com/Raspeball/Project-Euler/blob/master/md/projecteuler_main.md) to individual problems, with explanations in *norwegian*.
 
 ## Python code
+I mainly use [Python](https://www.python.org) in the soultions to the problems.
+
 [Python source code](https://github.com/Raspeball/Project-Euler/tree/master/py_source)
