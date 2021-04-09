@@ -15,10 +15,22 @@ def main():
 
 		fibo[i] = f
 
-	print sum	
-	
+	print sum
+
 main()
 
+# Function that returns the n-th fibonacci-number
 def Fibo(n):
-	
-		
+
+	if n == 0:
+		return 0
+
+	elif n == 1:
+		return 1
+
+	else:
+		return Fibo(n-1) + Fibo(n-2)
+
+# test
+for i in range(1,10):
+	print(Fibo(n))
