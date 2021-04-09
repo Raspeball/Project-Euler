@@ -43,10 +43,5 @@ for i in range(lim):
 	else:
 		if fib % 2 == 0:
 			sum_even_fibo += fib
-#while curr_fibo < lim:
-#	if curr_fibo % 2 == 0:
-#		sum_even_fibo = sum_even_fibo + curr_fibo
-#
-#	ledd += 1
 
 print(sum_even_fibo)
