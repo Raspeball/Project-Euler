@@ -1,23 +1,34 @@
-a = range(0,1001)
-b = range(1,1001)
-c = range(2,1001)
-
-def pyttrip(x,y,z):
-	return x**2 + y**2 - z**2
-
-def tripsum(u,v,w):
-	return u + v + w
+import numpy as np
+import itertools
+import timeit
 
 
-for i in range(len(a)):
-	for j in range(len(b)):
-		for k in range(len(c)):
-			while pyttrip(a[i],b[j],c[k]) == 0 and tripsum(a[i],b[j],c[k]) == 1000:
-				while a[i] < b[j] and b[j] < c[k]:
-					print a[i], b[j], c[k]
-					print a[i]*b[j]*c[k]
-					break
-				else: pass
-				break
-			else: pass
-			
+def IsPytTriple(a, b, c):
+
+	l = [a**2, b**2, c**2]
+	perm = itertools.permutations(l)
+	res = False
+
+	for i in list(perm):
+		if i[0] + i[1] == i[2]:
+			res = True
+		else:
+			continue
+
+	return res
+
+def SpecialPyt(val):
+
+	x = np.arange(1, val+1)
+
+
+
+	for i in x:
+		for j in x:
+			k = val - (i + j)
+			if IsPytTriple(i,j,k):
+				return i*j*k
+			else:
+				continue
+
+print(SpecialPyt(1000))
