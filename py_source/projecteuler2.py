@@ -1,6 +1,11 @@
+from functools import cache
+import timeit
+
 
 # Function that returns the n-th fibonacci-number
 # recursive function
+# extremely slow, if we don't use the cache decorator
+#@cache
 def Fibo(n):
 
 	if n == 0:
