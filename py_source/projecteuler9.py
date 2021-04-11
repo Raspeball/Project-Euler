@@ -20,4 +20,8 @@ for i in range(len(a)):
 				else: pass
 				break
 			else: pass
+
+			
+def SpecialPyt(val):
+	
 			
