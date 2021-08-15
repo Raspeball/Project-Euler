@@ -2,6 +2,10 @@ import math
 
 
 def IsPrime(n):
+
+    if n <= 1:
+        x = float(input("Please enter an integer greater than 2: "))
+        i
     if n == 2:
         return True
     else:
@@ -25,3 +29,7 @@ for i in range(3, math.ceil(math.sqrt(num) + 1)):
 
 for i in facs:
     print(i)
+
+facs.sort()
+
+print(facs[-1])
