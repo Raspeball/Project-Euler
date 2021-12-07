@@ -23,6 +23,6 @@ function largest_prime_factor(n)
     return Int(factor)
 end
 
-k = 1e6#600851475143
+k = 600851475143
 
 print("The largest prime factor of ", k, " is ", largest_prime_factor(k))
