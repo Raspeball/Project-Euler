@@ -64,26 +64,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-#facs = []
-
-#for i in range(3, math.ceil(math.sqrt(num) + 1)):
-#    if IsPrime(i):
-#        if num % i == 0:
-#            facs.append(i)
-#        else:
-#            continue
-#    else:
-#        continue
-#
-#for i in facs:
-#    print(i)
-#
-#facs.sort()
-#
-#print(facs[-1])
