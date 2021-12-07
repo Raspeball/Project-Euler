@@ -1,6 +1,10 @@
+# Import
 import math
-
-
+#
+#
+# Define functions
+#
+#
 def IsPrime(n):
 
     if n <= 1:
@@ -14,22 +18,72 @@ def IsPrime(n):
                 return False
 
     return True
+#
+#
 
-num = 600851475143
-facs = []
+def PrimeFactors(n):
+    # return the prime factorization of n
 
-for i in range(3, math.ceil(math.sqrt(num) + 1)):
-    if IsPrime(i):
-        if num % i == 0:
-            facs.append(i)
-        else:
-            continue
+    facs = [] # list to hold factors
+
+    f = n
+
+    if IsPrime(f):
+        facs.append(f)
+
     else:
-        continue
+        if f % 2 == 0:
+            while f % 2 == 0:
+                facs.append(2)
+                f = f/2
 
-for i in facs:
-    print(i)
+        i = 3
+        while  f > 1 and i <= math.ceil(n/3):
+            while f % i == 0:
+                facs.append(i)
+                f = f/i
 
-facs.sort()
 
-print(facs[-1])
+            i += 2
+
+
+
+
+    return facs
+#
+#
+#
+# Run program
+#
+#
+def main():
+    num = 600851475143
+    res = PrimeFactors(num)
+
+    print(f"The largest prime facor of {num} is {res[-1]}")
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+#facs = []
+
+#for i in range(3, math.ceil(math.sqrt(num) + 1)):
+#    if IsPrime(i):
+#        if num % i == 0:
+#            facs.append(i)
+#        else:
+#            continue
+#    else:
+#        continue
+#
+#for i in facs:
+#    print(i)
+#
+#facs.sort()
+#
+#print(facs[-1])
