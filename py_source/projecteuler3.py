@@ -6,6 +6,7 @@ import math
 #
 #
 def IsPrime(n):
+    # Could write try, except?
 
     if n <= 1:
         x = float(input("Please enter an integer greater than 2: "))
