@@ -1,3 +1,8 @@
+# import #
+from tqdm import tqdm
+#
+#
+#
 def Collatz(n):
 	num = 1
 	while n != 1:
@@ -6,14 +11,15 @@ def Collatz(n):
 		else:
 			n = 3*n + 1
 		num = num + 1
-	
-	return num
-	
 
-def CollatzNum():
+	return num
+
+
+def CollatzSequence(number_lim):
 	topnum = 0
 	topseq = 0
-	for i in range(2,1000001):
+	for i in tqdm(range(2, number_lim + 1)):
+	#for i in range(2,number_lim + 1):
 		if Collatz(i) > topseq:
 			topseq = Collatz(i)
 			topnum = i
@@ -21,10 +27,11 @@ def CollatzNum():
 			continue
 	return topnum
 
-print(CollatzNum())
+def main():
+	lim = 1000000
 
-	
-	
-	
-		
-		
+	res = CollatzSequence(lim)
+	print(res)
+
+if __name__ == '__main__':
+	main()
