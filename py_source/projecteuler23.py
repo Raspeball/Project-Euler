@@ -46,5 +46,17 @@ def IsAbundant(num):
     else:
         return False
 
+def AbundantNumbers(upper_lim):
+    abundant_nums = [12] # 12 is the lowest abundant number
+
+    for num in range(13, upper_lim - 11):
+        if IsAbundant(num):
+            abundant_nums.append(num)
+        else:
+            continue
+
+    return abundant_nums
+
 limit = 28123
-#  Testing yield 1047 abundant numbers under this limit
+test = AbundantNumbers(limit)
+print(len(test))
