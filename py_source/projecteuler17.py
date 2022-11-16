@@ -33,8 +33,6 @@ def SpellNumberBelowHundred(num):
     # spell number #
     # num has length 2 #
     num = str(num)
-    #if num[0] == "0":
-    #    num = num[1]
 
     if len(num) > 1:
         if num[0] == "1":
@@ -86,10 +84,6 @@ def CountLetters(list_of_nums):
     return count
 #
 #
-# test #
-#x = SpellNumberBelowThousand(900)
-#print(x)
-
 # main program#
 def main():
     res = CountLetters(list(range(1, 1000)))
