@@ -42,46 +42,24 @@ def FullRotationPrimeCheck(n):
 def FullRotation(n):
     #
     poss = FullRotationPrimeCheck(n)
+
     if poss:
-        # SHIFT ALL ONE TO THE LEFT UNTIL WE REACH SAME NUMBER AS WE STARTED WITH
-        temp = list(str(n))
-        list_perm = []
-        shift = 1
-        for i in range(1, (len(str(n)) + 1)):
-            x = [None]*len(temp)
-            x[shift - i] = temp[i]
-            list_perm += temp
+        # shift one to the left until we return to n
+        list_full_rot = [str(n)] # add n to the list of full rotations
 
-
-
-
-
-    # OLD VERSION #
-    #     list_perm = ["".join(p) for p in perm(str(n), len(str(n)))]
-
-    #     # removing doubles
-    #     #list_perm[:] = [p for p in set(list_perm)]
-
-    #     diff = len(str(n)) - len(set(str(n))) # diff always >= 0
-
-    #     if diff == 0:
-    #         for i, j in enumerate(str(n)):
-    #             list_perm[:] = [p for p in list_perm if p[i] != j]
+        for i in range(1, len(str(n))):
+            full_rot = str(n)[i:] + str(n)[:i]
+            list_full_rot.append(full_rot)
         
-    #     else:
-    #         list_perm[:] = [p for p in set(list_perm)]
+        list_full_rot[:] = [p for p in set(list_full_rot)] # removing doubles
+        
+        list_full_rot[:] = [eval(ele) for ele in list_full_rot] # integers
     
-    # else:
-    #     list_perm = []
-
+    else:
+        list_full_rot = []    
     
-    # list_perm[:] = [p for p in set(list_perm)] # removing doubles
-    
-    # list_perm[:] = [eval(ele) for ele in list_perm] # integers
-    # END OLD VERSION #
 
-
-    return poss, list_perm
+    return poss, list_full_rot
     #
 #
 
@@ -104,26 +82,22 @@ def IsCircularPrime(n):
 #
 
 # main
-## FIX: Program returns 25 for all values > 1000
-## Answer should be 55
 def main():
-    # goal = 10000
-    # count = 0
-    # primes = [p for p in range(2, goal + 1) if IsPrime(p)]
-    # #print(primes)
+    goal = 1000000
+    count = 0
+    primes = [p for p in range(2, goal + 1) if IsPrime(p)]
+    #print(primes)
 
-    # for n in primes:
-    #     if IsCircularPrime(n):
-    #         #print(n) # for testing
-    #         count += 1
+    for n in primes:
+        if IsCircularPrime(n):
+            #print(n) # for testing
+            count += 1
     
-    # print(count)
+    print(count)
 
     # TESTING #
-    # test = FullRotationPrimeCheck(1171)
-    # print(test)
-    x, y = FullRotation(197) # 13337
-    print(y)
+    # x, y = FullRotation(197)
+    # print(y)
     # END TESTING #
 #
 #
