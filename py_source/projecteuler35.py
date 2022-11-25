@@ -86,14 +86,19 @@ def main():
     goal = 1000000
     count = 0
     primes = [p for p in range(2, goal + 1) if IsPrime(p)]
-    #print(primes)
+
+    keep_circular_primes = []
 
     for n in primes:
         if IsCircularPrime(n):
-            #print(n) # for testing
+            keep_circular_primes.append(n)
             count += 1
     
     print(count)
+    
+    #print circular primes
+    for cp in keep_circular_primes:
+        print(cp)
 
     # TESTING #
     # x, y = FullRotation(197)
