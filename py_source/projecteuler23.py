@@ -1,5 +1,6 @@
 import math
 import collections
+from itertools import combinations
 
 
 def PropDiv(num):
@@ -10,7 +11,7 @@ def PropDiv(num):
         if r % i == 0:
             propdivs.append(int(r/i))
             propdivs.append(int(i))
-            r = r/i
+            #r = r/i
 
     #  print(propdivs)
 
@@ -20,7 +21,8 @@ def PropDiv(num):
         if multiples[m] > 1:
             for n in range(2, multiples[m] + 1):
                 if m**n != num and m**n < num:
-                    propdivs.append(m**n)
+                    if m**n % num == 0:
+                        propdivs.append(m**n)
 
 
     propdivs = list(set(propdivs))
@@ -57,6 +59,17 @@ def AbundantNumbers(upper_lim):
 
     return abundant_nums
 
+def NotSumOfTwoAbundant(limit):
+    abundant = AbundantNumbers(limit)
+    sum_two_ab = []
+
+    for ab_pair in combinations(abundant, 2):
+        sum_two_ab.append(sum(ab_pair))
+    
+    excl = [i for i in range(1, limit) if i not in sum_two_ab]
+
+    return excl
+
 limit = 28123
-test = AbundantNumbers(limit)
-print(len(test))
+res = sum(NotSumOfTwoAbundant(limit))
+print(res)
