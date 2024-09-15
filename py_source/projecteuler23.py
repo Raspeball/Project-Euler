@@ -1,28 +1,21 @@
 import math
 import collections
-from itertools import combinations
+from itertools import combinations_with_replacement as iter_cwr
 
 
 def PropDiv(num):
     propdivs = [1]
-    r = num
+    #r = num
 
-    for i in range(2, int(math.ceil(num/2.0))):
-        if r % i == 0:
-            propdivs.append(int(r/i))
+    n = int(math.ceil(math.sqrt(num)))
+
+    for i in range(2, n):
+        if num % i == 0:
+            propdivs.append(int(num/i))
             propdivs.append(int(i))
-            #r = r/i
 
-    #  print(propdivs)
-
-    multiples = collections.Counter(propdivs)
-
-    for m in multiples.keys():
-        if multiples[m] > 1:
-            for n in range(2, multiples[m] + 1):
-                if m**n != num and m**n < num:
-                    if m**n % num == 0:
-                        propdivs.append(m**n)
+    if n**2 == num:
+        propdivs.append(n)
 
 
     propdivs = list(set(propdivs))
@@ -51,7 +44,7 @@ def IsAbundant(num):
 def AbundantNumbers(upper_lim):
     abundant_nums = [12] # 12 is the lowest abundant number
 
-    for num in range(13, upper_lim - 11):
+    for num in range(13, upper_lim):
         if IsAbundant(num):
             abundant_nums.append(num)
         else:
@@ -63,7 +56,7 @@ def NotSumOfTwoAbundant(limit):
     abundant = AbundantNumbers(limit)
     sum_two_ab = []
 
-    for ab_pair in combinations(abundant, 2):
+    for ab_pair in iter_cwr(abundant, 2):
         sum_two_ab.append(sum(ab_pair))
     
     excl = [i for i in range(1, limit) if i not in sum_two_ab]
